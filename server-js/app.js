@@ -74,7 +74,7 @@ app.post("/chat", async (req, res) => {
       history: [
         {
           role: "user",
-          parts: [{text: "You are an AI assistant for a university course catalog. Answer questions based on the provided course data." }]
+          parts: [{text: "You are an AI assistant for the NJIT course catalog. Answer questions based on the provided course data." }]
         },
         {
           role: "user",

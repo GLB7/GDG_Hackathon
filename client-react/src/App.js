@@ -42,7 +42,7 @@ function App() {
   /** State variable to show/hide temporary streaming block. */
   const [streamdiv, showStreamdiv] = useState(false);
   /** State variable to toggle between streaming and non-streaming response. */
-  const [toggled, setToggled] = useState(false);
+  const [toggled, setToggled] = useState(true);
   /** 
    * State variable used to block the user from inputting the next message until
    * the previous conversation is completed.
