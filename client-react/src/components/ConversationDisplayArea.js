@@ -2,15 +2,16 @@ import React from 'react';
 import Markdown from 'react-markdown';
 import userIcon from '../assets/user-icon.png';
 // TODO: Consider replacing chatbotIcon with its own distinct icon.
-import chatbotIcon from '../assets/user-icon.png'
+import chatbotIcon from '../assets/njit.jpg'
 
 const ChatArea = ({ data, streamdiv, answer }) => {
   return (
     <div className="chat-area">
       {data?.length <= 0 ? (
         <div className="welcome-area">
-          <p className="welcome-1">Hi,</p>
-          <p className="welcome-2">How can I help you today?</p>
+          <p className="welcome-1">This is an NJIT chatbot that can help you register for classes.</p>
+          <p className="welcome-2">It has context of courses offered along with specific sections.</p>
+          {/* <p className="welcome-2">How can I help you today?</p> */}
         </div>
       ) : (
         <div className="welcome-area" style={{display: "none"}}></div>

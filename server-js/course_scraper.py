@@ -2,6 +2,14 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import re
+from pymongo import MongoClient
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+MONGODB_URI = os.getenv("MONGODB_URI")
+client=MongoClient(MONGODB_URI)
+db=client['Apollo']
 
 links=['https://catalog.njit.edu/undergraduate/architecture-design/#coursestext','https://catalog.njit.edu/undergraduate/computing-sciences/#coursestext','https://catalog.njit.edu/undergraduate/science-liberal-arts/#coursestext','https://catalog.njit.edu/undergraduate/newark-college-engineering/#coursestext','https://catalog.njit.edu/undergraduate/management/#coursestext']
 for link in links:
@@ -28,7 +36,8 @@ for link in links:
         else:
             doc['Prerequisites']=None
 
-        coreq=re.search(r'^Corequisite(s?):(.*?)\.',desc)
+        coreq=re.search(r'(?<!or )Corequisite(s?):(.*?)\.',desc)
+    
         if coreq:
             doc['Corequisites'] = coreq.group(2).strip()
         else:
@@ -42,4 +51,4 @@ for link in links:
         desc=re.sub(r'Prerequisite(s?):(.*?)\.', '', desc)
         desc=re.sub(r'(Pre or )?Corequisite(s?):(.*?)\.', '', desc)
         doc['Description']=desc.strip()
-        requests.post("http://3.86.34.32:5000/add_class", json=doc)
+        db['Catalog'].insert_one(doc)
