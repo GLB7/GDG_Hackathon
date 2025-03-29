@@ -36,7 +36,8 @@ for link in links:
         else:
             doc['Prerequisites']=None
 
-        coreq=re.search(r'^Corequisite(s?):(.*?)\.',desc)
+        coreq=re.search(r'(?<!or )Corequisite(s?):(.*?)\.',desc)
+    
         if coreq:
             doc['Corequisites'] = coreq.group(2).strip()
         else:
