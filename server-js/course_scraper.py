@@ -42,4 +42,4 @@ for link in links:
         desc=re.sub(r'Prerequisite(s?):(.*?)\.', '', desc)
         desc=re.sub(r'(Pre or )?Corequisite(s?):(.*?)\.', '', desc)
         doc['Description']=desc.strip()
-        requests.post("http://3.86.34.32:5000/add_class", json=doc)
+        #requests.post("http://3.86.34.32:5000/add_class", json=doc)
