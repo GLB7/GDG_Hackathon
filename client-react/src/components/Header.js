@@ -3,8 +3,8 @@ import React from 'react';
 const Header = ({ toggled, setToggled }) => {
   return (
     <div className="chat-header">
-      <h1>Example chat app</h1>
-      <span className='toggle-text'>Stream Response</span>
+      <h1>NJIT Course Assistance </h1>
+      {/* <span className='toggle-text'>Stream Response</span>
       <button 
         className={`toggle-btn ${toggled ? "toggled": ""}`}
         onClick={() => setToggled(!toggled)}
@@ -17,7 +17,7 @@ const Header = ({ toggled, setToggled }) => {
             <span className="toggle-hover-text">Streaming response On</span>
           )}
         </div>
-      </button>
+      </button> */}
     </div>
   );
 };
